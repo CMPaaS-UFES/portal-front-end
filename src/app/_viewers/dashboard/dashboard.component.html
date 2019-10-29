@@ -1,0 +1,120 @@
+<div id="map" #myDiagramDiv></div>
+<div class="main-content">
+    <div class="container-fluid">
+      <h4>Suas estatísticas</h4>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">device_hub</i>
+              </div>
+              <p class="card-category">Mapas Conceituais</p>
+              <h3 class="card-title">{{maps.length}}</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons text-success">plus_one</i>
+                <a (click)="newMap($event)" class="text-primary" href="">Criar um novo...</a>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <!--<div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">group</i>
+              </div>
+              <p class="card-category">Grupos</p>
+              <h3 class="card-title">0</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons text-warning">group_add</i> 
+                <a routerLink="/manage/groups" class="text-primary" href=""> Gerenciar seus grupos...</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-danger card-header-icon">
+              <div class="card-icon">
+                  <i class="fas fa-user-tag"></i>
+              </div>
+              <p class="card-category">Seguindo</p>
+              <h3 class="card-title">0</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons text-danger">timeline</i> 
+                <a routerLink="/pages/timeline" class="text-primary" href=""> Vizualizar Linha do tempo...</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <i class="fa fa-twitter"></i>
+              </div>
+              <p class="card-category">Seguidores</p>
+              <h3 class="card-title">+0</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons text-info">share</i> 
+                <a routerLink="/edit/cmap" class="text-primary" href=""> Gerencie o nível de acesso a seus mapas...</a>
+              </div>
+            </div>
+          </div>
+        </div>-->
+      </div>
+      <h6>Seus mapas recentes...</h6>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let map of maps; index as i">
+          <div class="card card-product">
+            <div class="card-header card-header-image" data-header-animation="true">
+                <div class="mapimg">
+                    <div class="img" [innerHTML]="images[i]"> 
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+              <div class="card-actions text-center">
+                <button mat-raised-button type="button" class="btn btn-danger btn-link fix-broken-card">
+                  <i class="material-icons">build</i> Fix Header!
+                </button>
+                <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="Visualizar" [matTooltipPosition]="'below'" (click)="click(i)">
+                  <i class="material-icons">art_track</i>
+                </button>
+                <button mat-raised-button type="button" class="btn btn-success btn-link" matTooltip="Editar" [matTooltipPosition]="'below'" [routerLink]="['/edit/cmap', map._id, map.versions[map.versions.length-1]]">
+                  <i class="material-icons">edit</i>
+                </button>
+                <button mat-raised-button type="button" class="btn btn-danger btn-link" matTooltip="Remover" [matTooltipPosition]="'below'" (click)="removeMap(i)">
+                  <i class="material-icons">close</i>
+                </button>
+              </div>
+              <h4 class="card-title">
+                 <a href="#">{{map.title}}</a>
+              </h4>
+              <div class="card-description">
+                  {{map.description}}
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <p class="card-category"><i class="material-icons">calendar_today</i> {{map.last_update | date: 'dd/MM/yyyy'}}</p>
+              </div>
+              <div class="stats">
+                <!--<p class="card-category"><i class="material-icons">favorite</i> 5</p>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--<conceptmap id="map" #map1></conceptmap>-->
