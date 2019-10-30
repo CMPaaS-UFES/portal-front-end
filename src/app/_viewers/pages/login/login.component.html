@@ -1,0 +1,49 @@
+      <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+        <form class="form"  action="">
+          <div class="card card-login card-hidden">
+            <div class="card-header card-header-danger text-center">
+              <h4 class="card-title">Bem Vindo</h4>
+              <!--<div class="social-line">
+                <a class="btn btn-just-icon btn-link btn-white" (click)="fbLogin($event)">
+                  <i class="fa fa-facebook-square"></i>
+                </a>
+                 <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                  <i class="fa fa-twitter"></i>
+                </a> 
+                <a id="googleBtn" class="btn btn-just-icon btn-link btn-white" (click)="gLogin($event)">
+                  <i class="fa fa-google"></i>
+                </a>
+              </div>-->
+            </div>
+            <div class="card-body ">
+              <!--<p class="card-description text-center">Or Be Classical</p>-->
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">face</i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Username..." [(ngModel)]="user.username" name="username">
+                </div>
+              </span>
+              <span class="bmd-form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password..." [(ngModel)]="user.password" name="password">
+                </div>
+              </span>
+            </div>
+            <div class="card-footer justify-content-center">
+              <button type="submit" class="btn btn-rose btn-link btn-lg" (click)="login()">Entrar</button>
+            </div>
+             <div class="card-footer justify-content-center">
+              <a [routerLink]="['../forgot']"> Esqueceu sua Senha?</a>
+             </div>
+          </div>
+        </form>
+      </div>
